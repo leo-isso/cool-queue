@@ -17,10 +17,10 @@ function Header ({ addToQueue, updateQueue }) {
         <Components.Wrapper>
           <Components.Brand>Cool Queue</Components.Brand>
           <Components.Nav>
-            <Components.NavItem onClick={() => addToQueue('add')}>
+            <Components.NavItem onClick={() => addToQueue()}>
               <FaPlusSquare/>
             </Components.NavItem>
-            <Components.NavItem onClick={() => updateQueue('update')}>
+            <Components.NavItem onClick={() => updateQueue()}>
               <FaSyncAlt/>
             </Components.NavItem>
           </Components.Nav>
