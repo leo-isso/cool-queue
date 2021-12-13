@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 
 import * as Components from './Container.styles'
 
+/**
+ * Container Component
+ */
 function Container ({ children }) {
   return (
     <Components.Container>
