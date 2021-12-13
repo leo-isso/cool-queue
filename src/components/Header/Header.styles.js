@@ -18,6 +18,7 @@ export const Wrapper = styledComponents.div`
 `
 
 export const Brand = styledComponents.div`
+  cursor: pointer;
   color: ${colors.white};
   font-size: 1.5rem;
   fontweight: bold;
@@ -29,6 +30,7 @@ export const Nav = styledComponents.nav`
   justify-content: space-between;
 `
 export const NavItem = styledComponents.div`
+  cursor: pointer;
   color: ${colors.white};
   align-items: center;
   display: flex;
