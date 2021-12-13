@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   width: 100%;
 `
 
-export const Text = styled.div`
+export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,10 +25,6 @@ export const Text = styled.div`
   width: 100%;
 `
 
-export const Title = styled.p`
-  color: ${colors.white};
-`
-
-export const JobName = styled.p`
+export const Text = styled.h2`
   color: ${colors.white};
 `

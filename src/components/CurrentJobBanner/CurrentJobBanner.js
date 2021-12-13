@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import Container from '../Container'
 import * as Components from './CurrentJobBanner.styles'
-import Title from '../utils/Title'
 
 /**
  * CurrentJobBanner Component
@@ -15,14 +14,16 @@ function CurrentJobBanner ({ job }) {
     <Components.CurrentJobBanner>
       <Container>
         <Components.Wrapper>
-          <Components.Text>
-            <Title style={{ color: 'white', textDecoration: 'underline' }}>
+          <Components.TextBlock>
+            <Components.Text
+              style={{ textDecoration: 'underline' }}>
               Current Running Job:
-            </Title>
-            <Title style={{ color: 'white', margin: '10px 0 0' }}>
+            </Components.Text>
+            <Components.Text
+              style={{ margin: '10px 0 0' }}>
               {job.name}
-            </Title>
-          </Components.Text>
+            </Components.Text>
+          </Components.TextBlock>
         </Components.Wrapper>
       </Container>
     </Components.CurrentJobBanner>
