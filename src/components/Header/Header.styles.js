@@ -1,7 +1,7 @@
-import styledComponents from 'styled-components'
+import styled from 'styled-components'
 import colors from '../../styles/colors'
 
-export const Header = styledComponents.div`
+export const Header = styled.div`
   padding: 0.5rem;
   display: flex;
   justify-content: center;
@@ -10,26 +10,26 @@ export const Header = styledComponents.div`
   width: 100%;
 `
 
-export const Wrapper = styledComponents.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 `
 
-export const Brand = styledComponents.div`
+export const Brand = styled.div`
   cursor: pointer;
   color: ${colors.white};
   font-size: 1.5rem;
-  fontweight: bold;
+  font-weight: bold;
 `
 
-export const Nav = styledComponents.nav`
+export const Nav = styled.nav`
   align-items: center;
   display: flex;
   justify-content: space-between;
 `
-export const NavItem = styledComponents.div`
+export const NavItem = styled.div`
   cursor: pointer;
   color: ${colors.white};
   align-items: center;
