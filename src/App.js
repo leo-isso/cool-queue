@@ -1,5 +1,5 @@
-import './App.css'
-import Header from './components/Header/Header'
+import CurrentJobBanner from './components/CurrentJobBanner/'
+import Header from './components/Header/'
 
 function App () {
   return (
@@ -7,6 +7,9 @@ function App () {
       <Header
         addToQueue={() => console.log('add')}
         updateQueue={() => console.log('update')}
+      />
+      <CurrentJobBanner
+        job={{ name: 'The big test man' }}
       />
     </div>
   )
