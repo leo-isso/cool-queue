@@ -5,6 +5,11 @@ import { FaPlusSquare, FaSyncAlt } from 'react-icons/fa'
 import * as Components from './Header.styles'
 import Container from '../Container'
 
+/**
+ * Header Component
+ * @param {function} addToQueue - function to add a new item to the queue
+ * @param {function} updateQueue - function to update the queue
+*/
 function Header ({ addToQueue, updateQueue }) {
   return (
     <Components.Header>
@@ -12,8 +17,12 @@ function Header ({ addToQueue, updateQueue }) {
         <Components.Wrapper>
           <Components.Brand>Cool Queue</Components.Brand>
           <Components.Nav>
-            <Components.NavItem onClick={() => addToQueue('add')}><FaPlusSquare/></Components.NavItem>
-            <Components.NavItem onClick={() => updateQueue('update')}><FaSyncAlt/></Components.NavItem>
+            <Components.NavItem onClick={() => addToQueue('add')}>
+              <FaPlusSquare/>
+            </Components.NavItem>
+            <Components.NavItem onClick={() => updateQueue('update')}>
+              <FaSyncAlt/>
+            </Components.NavItem>
           </Components.Nav>
         </Components.Wrapper>
       </Container>
