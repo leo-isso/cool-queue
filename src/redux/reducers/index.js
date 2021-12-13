@@ -1,5 +1,9 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
-const rootReducer = combineReducers({})
+import queue from './queue'
+
+const rootReducer = combineReducers({
+  queue
+})
 
 export default rootReducer
