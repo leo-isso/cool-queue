@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import CurrentJobBanner from './components/CurrentJobBanner'
 import Header from './components/Header'
 import JobList from './components/JobList'
+import Modal from './components/Modal'
 import Tabs from './components/Tabs'
 
 import jobs from './mocks/jobs'
 
 function App () {
+  const [showCreateModal, setShowCreateModal] = useState(false)
+
   const renderList = () => {
     return (
       <JobList jobs={jobs} />
@@ -25,15 +29,19 @@ function App () {
   return (
     <div className="App">
       <Header
-        addToQueue={() => console.log('add')}
+        addToQueue={() => setShowCreateModal(true)}
         updateQueue={() => console.log('update')}
       />
       <CurrentJobBanner
-        job={{ name: 'The big test man' }}
+        job={jobs[0]}
       />
       <Tabs
         tabItems={tabItems}
       />
+      <Modal
+        show={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+        />
     </div>
   )
 }
