@@ -15,14 +15,22 @@ function CurrentJobBanner ({ job }) {
       <Container>
         <Components.Wrapper>
           <Components.TextBlock>
-            <Components.Text
-              style={{ textDecoration: 'underline' }}>
-              Current Running Job:
-            </Components.Text>
-            <Components.Text
-              style={{ margin: '10px 0 0' }}>
-              {job.name}
-            </Components.Text>
+            {job
+              ? (
+                <>
+                  <Components.Text style={{ textDecoration: 'underline' }}>
+                    Current Running Job:
+                  </Components.Text>
+                  <Components.Text style={{ margin: '10px 0 0' }}>
+                    {job.name}
+                  </Components.Text>
+                </>
+                )
+              : (
+                <Components.Text style={{ textDecoration: 'underline' }}>
+                  No Current Running Job
+                </Components.Text>
+                )}
           </Components.TextBlock>
         </Components.Wrapper>
       </Container>
@@ -31,7 +39,7 @@ function CurrentJobBanner ({ job }) {
 }
 
 CurrentJobBanner.propTypes = {
-  job: PropTypes.object.isRequired
+  job: PropTypes.object
 }
 
 export default CurrentJobBanner
