@@ -17,10 +17,10 @@ const queueAddPendingJobSuccess = (state, action) => ({
 
 const queueRemovePendingJobSuccess = (state, action) => ({
   ...state,
-  pending: state.pending.filter(item => item.id !== action.payload.id),
+  pending: state.pending.filter((item) => item.id !== action.payload.id),
   completed: [...state.completed, action.payload],
   size: state.pending.length - 1,
-  empty: state.pending.length === 0
+  empty: state.pending.length - 1 === 0
 })
 
 export default function queueReducer (state = initialState, action) {
