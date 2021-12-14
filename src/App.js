@@ -40,16 +40,12 @@ function App () {
         addToQueue={() => setShowCreateModal(true)}
         updateQueue={() => console.log('update')}
       />
-      <CurrentJobBanner
-        job={pending[0]}
-      />
-      <Tabs
-        tabItems={tabItems}
-      />
+      <CurrentJobBanner job={workingItem} />
+      <Tabs tabItems={tabItems} />
       <ModalJobCreation
         show={showCreateModal}
         onClose={() => setShowCreateModal(false)}
-        />
+      />
     </div>
   )
 }
