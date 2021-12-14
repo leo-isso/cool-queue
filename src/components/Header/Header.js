@@ -15,13 +15,17 @@ function Header ({ addToQueue, updateQueue }) {
     <Components.Header>
       <Container>
         <Components.Wrapper>
-          <Components.Brand><FaClipboardList/> Cool Queue</Components.Brand>
+          <Components.Brand>
+            <FaClipboardList /> Cool Queue
+          </Components.Brand>
           <Components.Nav>
             <Components.NavItem onClick={() => addToQueue()}>
-              <FaPlusSquare/>
+              <FaPlusSquare />{' '}
+              <Components.NavItemText>New Job</Components.NavItemText>
             </Components.NavItem>
             <Components.NavItem onClick={() => updateQueue()}>
-              <FaSyncAlt/>
+              <FaSyncAlt />{' '}
+              <Components.NavItemText>Update Queue</Components.NavItemText>
             </Components.NavItem>
           </Components.Nav>
         </Components.Wrapper>

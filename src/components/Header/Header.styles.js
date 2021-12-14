@@ -36,5 +36,17 @@ export const NavItem = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
-  margin-left: 15px;
+  margin-left: 20px;
+
+  &:hover {
+    color: ${colors.lightGrey};
+  }
+
+  &::first-of-type {
+    margin-left: 0;
+  }
+`
+export const NavItemText = styled.span`
+  margin-left: 5px;
+  font-size: 1rem;
 `
