@@ -18,6 +18,7 @@ export const ModalBase = styled.div`
   border-radius: 15px;
   position: relative;
   background-color:${colors.white};
+  overflow: hidden;
   height: 300px;
   width: 300px;
 `
@@ -29,4 +30,13 @@ export const Close = styled.div`
   position: absolute;
   right: 20px;
   top: 20px;
+`
+export const Header = styled.div`
+  border-bottom: 1px solid ${colors.grey};
+  background-color: ${colors.lightGrey};
+  color: ${colors.primary};
+  height: 55px;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 20px;
 `

@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import * as Components from './Modal.styles'
 import { FaWindowClose } from 'react-icons/fa'
 
-function Modal ({ children, show, onClose }) {
+import * as Components from './Modal.styles'
+
+function Modal ({ children, show, onClose, title }) {
   if (!show) return null
 
   return (
@@ -13,6 +13,7 @@ function Modal ({ children, show, onClose }) {
         <Components.Close onClick={() => onClose()}>
           <FaWindowClose />
         </Components.Close>
+        <Components.Header>{title}</Components.Header>
         {children}
       </Components.ModalBase>
     </Components.Background>
@@ -22,7 +23,8 @@ function Modal ({ children, show, onClose }) {
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
   show: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired
 }
 
 export default Modal
