@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaPlusSquare, FaSyncAlt } from 'react-icons/fa'
+import { FaClipboardList, FaPlusSquare, FaSyncAlt } from 'react-icons/fa'
 
 import * as Components from './Header.styles'
 import Container from '../Container'
@@ -15,7 +15,7 @@ function Header ({ addToQueue, updateQueue }) {
     <Components.Header>
       <Container>
         <Components.Wrapper>
-          <Components.Brand>Cool Queue</Components.Brand>
+          <Components.Brand><FaClipboardList/> Cool Queue</Components.Brand>
           <Components.Nav>
             <Components.NavItem onClick={() => addToQueue()}>
               <FaPlusSquare/>
