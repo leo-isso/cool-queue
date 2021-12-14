@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import JobCard from '../JobCard'
 import * as Components from './JobList.styles'
-import { queueRemovePendingJob } from '../../redux/actions/queue'
+import { queueRemovePendingJob, queueRemoveWorkingJob } from '../../redux/actions/queue'
 
 /**
  * JobList component
@@ -15,7 +15,10 @@ function JobList ({ jobs }) {
   const hasJobs = jobs && jobs.length > 0
 
   const handleCancelItem = (job) => {
-    dispatch(queueRemovePendingJob(job))
+    if (job.status === 'pending') {
+      dispatch(queueRemovePendingJob(job))
+    }
+    dispatch(queueRemoveWorkingJob(job))
   }
 
   return (
