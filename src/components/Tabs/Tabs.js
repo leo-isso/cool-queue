@@ -39,11 +39,9 @@ function Tabs ({ tabItems }) {
           </Components.Tabs>
         </Container>
       </Components.Background>
-      <div>
-        <Container>
-          {renderSelectedTabContent()}
-        </Container>
-      </div>
+      <Components.TabContent>
+        <Container>{renderSelectedTabContent()}</Container>
+      </Components.TabContent>
     </>
   )
 }

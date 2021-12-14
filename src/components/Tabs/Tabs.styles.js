@@ -31,3 +31,6 @@ export const Tab = styled.div`
     color: ${colors.white};
   }
 `
+
+export const TabContent = styled.div`
+`
