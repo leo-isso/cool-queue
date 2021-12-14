@@ -4,6 +4,12 @@ import PropTypes from 'prop-types'
 import * as Components from './Tabs.styles'
 import Container from '../Container'
 
+/**
+ * Tabs Component
+ * @param {array} tabItems
+ * @param {string} tabItems[].title - title of the tab
+ * @param {function} tabItems[].content - content of the tab
+ */
 function Tabs ({ tabItems }) {
   const [selectedTab, setSelectedTab] = useState(0)
 
@@ -21,13 +27,13 @@ function Tabs ({ tabItems }) {
       <Components.Background>
         <Container>
           <Components.Tabs>
-            {tabItems.map(({ name }, index) => (
+            {tabItems.map(({ title }, index) => (
               <Components.Tab
                 key={index}
                 onClick={() => handleTabSelection(index)}
                 isSelected={index === selectedTab}
               >
-                {name}
+                {title}
               </Components.Tab>
             ))}
           </Components.Tabs>
