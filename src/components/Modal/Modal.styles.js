@@ -19,7 +19,6 @@ export const ModalBase = styled.div`
   position: relative;
   background-color:${colors.white};
   overflow: hidden;
-  height: 300px;
   max-width: 500px;
   width: 100%;
 `
