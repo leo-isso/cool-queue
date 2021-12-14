@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import JobCard from '../JobCard'
-import * as Components from './JobList.style'
+import * as Components from './JobList.styles'
 
 /**
  * JobList component

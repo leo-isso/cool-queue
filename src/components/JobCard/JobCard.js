@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FaCheckCircle, FaClock, FaMinusCircle, FaRegTrashAlt, FaTag } from 'react-icons/fa'
 
-import * as Components from './JobCard.style'
+import * as Components from './JobCard.styles'
 import colors from '../../styles/colors'
 
 /**
