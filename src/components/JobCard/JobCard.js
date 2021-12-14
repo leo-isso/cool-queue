@@ -5,6 +5,11 @@ import { FaCheckCircle, FaClock, FaMinusCircle, FaRegTrashAlt, FaTag } from 'rea
 import * as Components from './JobCard.style'
 import colors from '../../styles/colors'
 
+/**
+ * JobCard component
+ * @param {object} job
+ * @param {function} onCancelItem
+ */
 function JobCard ({ job, onCancelItem }) {
   const { status, name, duration } = job
 
@@ -27,6 +32,7 @@ function JobCard ({ job, onCancelItem }) {
     }
   }
 
+  // selects icon and action based on status
   const { icon, action } = iconsByStatus[status] || { icon: null, action: null }
 
   return (

@@ -4,6 +4,10 @@ import PropTypes from 'prop-types'
 import JobCard from '../JobCard'
 import * as Components from './JobList.style'
 
+/**
+ * JobList component
+ * @param {object} jobs
+ */
 function JobList ({ jobs }) {
   return (
     <Components.Wrapper>
