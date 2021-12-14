@@ -19,8 +19,20 @@ const queueRemovePendingJobSuccess = (state, action) => ({
   ...state,
   pending: state.pending.filter((item) => item.id !== action.payload.id),
   completed: [...state.completed, action.payload],
-  size: state.pending.length - 1,
-  empty: state.pending.length - 1 === 0
+  size: state.pending.length,
+  empty: state.pending.length === 0
+})
+
+const queueAddWorkingJobSuccess = (state, action) => ({
+  ...state,
+  pending: state.pending.filter((item) => item.id !== action.payload.id),
+  working_item: action.payload
+})
+
+const queueRemoveWorkingJobSuccess = (state, action) => ({
+  ...state,
+  working_item: null,
+  completed: [...state.completed, action.payload]
 })
 
 export default function queueReducer (state = initialState, action) {
@@ -31,11 +43,12 @@ export default function queueReducer (state = initialState, action) {
     case types.QUEUE_REMOVE_PENDING_JOB_SUCCESS:
       return queueRemovePendingJobSuccess(state, action)
 
-    case types.QUEUE_ADD_WORKING_JOB:
-      return {
-        ...state,
-        working_item: action.payload
-      }
+    case types.QUEUE_ADD_WORKING_JOB_SUCCESS:
+      return queueAddWorkingJobSuccess(state, action)
+
+    case types.QUEUE_REMOVE_WORKING_JOB_SUCCESS:
+      return queueRemoveWorkingJobSuccess(state, action)
+
     case types.QUEUE_ADD_COMPLETED_JOB:
       return {
         ...state,
