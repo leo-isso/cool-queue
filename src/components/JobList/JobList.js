@@ -9,15 +9,25 @@ import * as Components from './JobList.styles'
  * @param {object} jobs
  */
 function JobList ({ jobs }) {
+  const hasJobs = jobs && jobs.length > 0
+
   return (
     <Components.Wrapper>
-      {jobs.map(job => (
-        <JobCard
-          key={job.id}
-          job={job}
-          onCancelItem={(job) => console.log(job)}
+      {hasJobs
+        ? jobs.map((job) => (
+          <JobCard
+            key={job.id}
+            job={job}
+            onCancelItem={(job) => console.log(job)}
           />
-      ))}
+        ))
+        : (
+          <Components.Empty>
+            <Components.EmptyText>
+              {'No items found :('}
+            </Components.EmptyText>
+          </Components.Empty>
+          )}
     </Components.Wrapper>
   )
 }
