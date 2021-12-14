@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import CurrentJobBanner from './components/CurrentJobBanner'
 import Header from './components/Header'
@@ -11,19 +12,17 @@ import jobs from './mocks/jobs'
 function App () {
   const [showCreateModal, setShowCreateModal] = useState(false)
 
-  const renderList = () => {
-    return (
-      <JobList jobs={jobs} />
-    )
-  }
+  const queue = useSelector((state) => state.queue)
+  const { pending, completed } = queue
+
   const tabItems = [
     {
-      title: 'Tab 1',
-      content: () => renderList()
+      title: 'Pending/Working',
+      content: () => <JobList jobs={pending} />
     },
     {
-      title: 'Tab 2',
-      content: () => renderList()
+      title: 'Finished',
+      content: () => <JobList jobs={completed} />
     }
   ]
 
