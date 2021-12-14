@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { Button } from '../components/Button/Button.styles'
 import TextInput from '../components/TextInput'
 import RadioButton from '../components/RadioButton'
-import { queueAddPendingItem } from '../redux/actions/queue'
+import { queueAddPendingJob } from '../redux/actions/queue'
 
 function AddJobToQueue () {
   const dispatch = useDispatch()
@@ -23,7 +23,7 @@ function AddJobToQueue () {
 
   const onSubmit = values => {
     console.log(values)
-    dispatch(queueAddPendingItem(values))
+    dispatch(queueAddPendingJob(values))
   }
 
   return (
