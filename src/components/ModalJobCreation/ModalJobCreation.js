@@ -13,6 +13,7 @@ function ModalJobCreation ({ show, onClose }) {
         <Form
           onSubmit={(values) => console.log(values)}
           validate={(values) => console.log(values)}
+          initialValues={{ timeFormat: 'minutes' }}
           render={({ handleSubmit, submitting }) => (
             <JobCreationForm handleSubmit={handleSubmit} submitting={submitting}/>
           )}
