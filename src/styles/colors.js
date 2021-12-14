@@ -6,7 +6,9 @@ const colors = {
   white: '#ffffff',
   black: '#000000',
   danger: '#f44336',
-  success: '#4caf50'
+  success: '#4caf50',
+  grey: '#9e9e9e',
+  lightGrey: '#f5f5f5'
 }
 
 export default colors
