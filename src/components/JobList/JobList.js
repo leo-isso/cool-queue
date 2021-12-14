@@ -45,14 +45,14 @@ function JobList ({ jobs }) {
 JobList.propTypes = {
   jobs: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      duration: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-      index: PropTypes.number.isRequired,
-      status: PropTypes.string.isRequired,
-      progress: PropTypes.number.isRequired
+      name: PropTypes.string,
+      duration: PropTypes.string,
+      id: PropTypes.string,
+      index: PropTypes.number,
+      status: PropTypes.string,
+      progress: PropTypes.number
     })
-  ).isRequired
+  )
 }
 
 export default JobList

@@ -58,8 +58,8 @@ JobCard.propTypes = {
   job: PropTypes.shape({
     name: PropTypes.string.isRequired,
     duration: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    index: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
+    index: PropTypes.number,
     status: PropTypes.string.isRequired,
     progress: PropTypes.number.isRequired
   }).isRequired,
