@@ -22,7 +22,6 @@ function AddJobToQueue () {
   }
 
   const onSubmit = values => {
-    console.log(values)
     dispatch(queueAddPendingJob(values))
   }
 
