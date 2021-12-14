@@ -7,8 +7,6 @@ import JobList from './components/JobList'
 import ModalJobCreation from './components/ModalJobCreation'
 import Tabs from './components/Tabs'
 
-import jobs from './mocks/jobs'
-
 function App () {
   const [showCreateModal, setShowCreateModal] = useState(false)
 
@@ -33,7 +31,7 @@ function App () {
         updateQueue={() => console.log('update')}
       />
       <CurrentJobBanner
-        job={jobs[0]}
+        job={pending[0]}
       />
       <Tabs
         tabItems={tabItems}
