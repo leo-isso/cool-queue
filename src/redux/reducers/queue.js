@@ -10,14 +10,14 @@ const initialState = {
 
 export default function queueReducer (state = initialState, action) {
   switch (action.type) {
-    case types.QUEUE_ADD_PENDING_ITEM:
+    case types.QUEUE_ADD_PENDING_JOB:
       return {
         ...state,
         pending: [...state.pending, action.payload],
         size: state.pending.length,
         empty: false
       }
-    case types.QUEUE_REMOVE_PENDING_ITEM:
+    case types.QUEUE_REMOVE_PENDING_JOB:
       return {
         ...state,
         pending: state.pending.filter(item => item.id !== action.payload.id),
@@ -25,12 +25,12 @@ export default function queueReducer (state = initialState, action) {
         size: state.pending.length,
         empty: state.pending.length === 0
       }
-    case types.QUEUE_ADD_WORKING_ITEM:
+    case types.QUEUE_ADD_WORKING_JOB:
       return {
         ...state,
         working_item: action.payload
       }
-    case types.QUEUE_ADD_COMPLETED_ITEM:
+    case types.QUEUE_ADD_COMPLETED_JOB:
       return {
         ...state,
         working_item: null
