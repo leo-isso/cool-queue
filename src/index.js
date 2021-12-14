@@ -6,12 +6,15 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import store from './redux/store'
 import GlobalStyle from './styles/GlobalStyle'
+import { ModalProvider } from './contexts/Modals/Modal.context'
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <GlobalStyle/>
-      <App />
+      <ModalProvider>
+        <App />
+      </ModalProvider>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

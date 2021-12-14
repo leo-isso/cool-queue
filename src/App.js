@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import CurrentJobBanner from './components/CurrentJobBanner'
 import Header from './components/Header'
 import JobList from './components/JobList'
-import ModalJobCreation from './components/ModalJobCreation'
 import Tabs from './components/Tabs'
 
+import { useModal } from './contexts/Modals/Modal.context'
 import { queueAddWorkingJob } from './redux/actions/queue'
 
 function App () {
   const dispatch = useDispatch()
-
-  const [showCreateModal, setShowCreateModal] = useState(false)
+  const { openModal } = useModal()
 
   const queue = useSelector((state) => state.queue)
   const { pending, completed, working_item: workingItem } = queue
@@ -37,15 +36,11 @@ function App () {
   return (
     <div className="App">
       <Header
-        addToQueue={() => setShowCreateModal(true)}
+        addToQueue={() => openModal('createJob')}
         updateQueue={() => console.log('update')}
       />
       <CurrentJobBanner job={workingItem} />
       <Tabs tabItems={tabItems} />
-      <ModalJobCreation
-        show={showCreateModal}
-        onClose={() => setShowCreateModal(false)}
-      />
     </div>
   )
 }
