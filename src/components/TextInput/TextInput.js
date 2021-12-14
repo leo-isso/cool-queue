@@ -7,6 +7,7 @@ function TextInput ({
   id,
   label,
   input,
+  meta,
   placeholder
 }) {
   return (
@@ -20,7 +21,11 @@ function TextInput ({
         onChange={input.onChange}
         onBlur={input.onBlur}
         placeholder={placeholder}
+        hasError={meta.touched && (meta.error || meta.submitError)}
       />
+      {meta.touched && (meta.error || meta.submitError) && (
+        <Components.Error>{meta.error || meta.submitError}</Components.Error>
+      )}
     </Components.Wrapper>
   )
 }
@@ -29,6 +34,7 @@ TextInput.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string.isRequired,
   input: PropTypes.object,
+  meta: PropTypes.object,
   placeholder: PropTypes.string,
   type: PropTypes.string
 }

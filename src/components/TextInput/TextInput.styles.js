@@ -12,7 +12,7 @@ export const Label = styled.label`
   margin-bottom: 5px;
 `
 export const Input = styled.input`
-  border: 1px solid ${colors.grey};
+  border: 1px solid ${props => props.hasError ? colors.danger : colors.grey};
   border-radius: 5px;
   font-size: 1em;
   padding: 5px;
@@ -21,4 +21,9 @@ export const Input = styled.input`
     outline: none;
     border: 1px solid ${colors.primary};
   }
+`
+export const Error = styled.span`
+  color: ${colors.danger};
+  margin-top: 3px;
+  font-size: 0.9em;
 `
