@@ -1,8 +1,9 @@
 import { useState } from 'react'
+
 import CurrentJobBanner from './components/CurrentJobBanner'
 import Header from './components/Header'
 import JobList from './components/JobList'
-import Modal from './components/Modal'
+import ModalJobCreation from './components/ModalJobCreation'
 import Tabs from './components/Tabs'
 
 import jobs from './mocks/jobs'
@@ -38,7 +39,7 @@ function App () {
       <Tabs
         tabItems={tabItems}
       />
-      <Modal
+      <ModalJobCreation
         show={showCreateModal}
         onClose={() => setShowCreateModal(false)}
         />
