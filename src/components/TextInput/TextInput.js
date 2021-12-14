@@ -3,6 +3,14 @@ import PropTypes from 'prop-types'
 
 import * as Components from './TextInput.styles'
 
+/**
+ *
+ * @param {string} id - The id of the input
+ * @param {string} label - The label of the input
+ * @param {string} placeholder - The placeholder of the input
+ * @param {object} input - input data from Field component from react-final-form
+ * @param {object} meta - meta data from Field component from react-final-form
+ */
 function TextInput ({
   id,
   label,

@@ -5,6 +5,10 @@ import * as Components from './ModalJobCreation.styles'
 import Modal from '../Modal'
 import AddJobToQueue from '../../Forms/AddJobToQueue'
 
+/**
+ * ModalJobCreation component
+ * Extension of Modal component
+ */
 function ModalJobCreation ({ show, onClose }) {
   return (
     <Modal show={show} onClose={onClose} title="Add item to queue">

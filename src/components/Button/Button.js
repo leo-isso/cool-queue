@@ -3,6 +3,15 @@ import PropTypes from 'prop-types'
 
 import * as Components from './Button.styles'
 
+/**
+ * Button component
+ * @param {Node} children - The children of the button
+ * @param {boolean} disabled - The disabled state of the button
+ * @param {boolean} reverse - The reverse style state of the button
+ * @param {string} type - The type of the button
+ * @param {string} id - The id of the button
+ * @param {Function} onClick - The onClick handler of the button
+ */
 function Button ({
   children,
   disabled,
