@@ -6,7 +6,7 @@ import createJob from '../../../services/createJob'
 function * queueAddPendingJob (action) {
   try {
     const item = yield createJob(action.payload)
-    console.log(item)
+    yield put({ type: types.QUEUE_ADD_PENDING_JOB_SUCCESS, payload: item })
   } catch (error) {
     const { message } = error
     yield put({ type: types.QUEUE_ADD_PENDING_JOB_FAIL, payload: { message } })
