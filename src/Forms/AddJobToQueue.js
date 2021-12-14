@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Field, Form } from 'react-final-form'
 import { useDispatch } from 'react-redux'
 
@@ -7,7 +8,7 @@ import TextInput from '../components/TextInput'
 import RadioButton from '../components/RadioButton'
 import { queueAddPendingJob } from '../redux/actions/queue'
 
-function AddJobToQueue () {
+function AddJobToQueue ({ submitCallback }) {
   const dispatch = useDispatch()
 
   const validateForm = ({ name, duration }) => {
@@ -23,6 +24,7 @@ function AddJobToQueue () {
 
   const onSubmit = values => {
     dispatch(queueAddPendingJob(values))
+    submitCallback && submitCallback()
   }
 
   return (
@@ -79,7 +81,7 @@ function AddJobToQueue () {
 }
 
 AddJobToQueue.propTypes = {
-
+  submitCallback: PropTypes.func
 }
 
 export default AddJobToQueue
