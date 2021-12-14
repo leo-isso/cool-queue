@@ -8,7 +8,7 @@ import TextInput from '../components/TextInput'
 import RadioButton from '../components/RadioButton'
 import { queueAddPendingJob } from '../redux/actions/queue'
 
-function AddJobToQueue ({ submitCallback }) {
+function AddJobToQueue ({ submitCallback, onCancel }) {
   const dispatch = useDispatch()
 
   const validateForm = ({ name, duration }) => {
@@ -70,9 +70,11 @@ function AddJobToQueue ({ submitCallback }) {
             }}
           >
             <Button type="submit">Submit</Button>
-            <Button type="submit" reverse>
-              Cancel
-            </Button>
+            {onCancel && (
+              <Button type="button" onClick={onCancel} reverse>
+                Cancel
+              </Button>
+            )}
           </div>
         </form>
       )}
@@ -81,7 +83,8 @@ function AddJobToQueue ({ submitCallback }) {
 }
 
 AddJobToQueue.propTypes = {
-  submitCallback: PropTypes.func
+  submitCallback: PropTypes.func,
+  onCancel: PropTypes.func
 }
 
 export default AddJobToQueue

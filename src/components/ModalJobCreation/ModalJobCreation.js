@@ -13,7 +13,7 @@ function ModalJobCreation ({ show, onClose }) {
   return (
     <Modal show={show} onClose={onClose} title="Add item to queue">
       <Components.Wrapper>
-        <AddJobToQueue submitCallback={onClose}/>
+        <AddJobToQueue submitCallback={onClose} onCancel={onClose}/>
       </Components.Wrapper>
     </Modal>
   )
