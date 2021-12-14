@@ -49,9 +49,13 @@ function JobCard ({ job, onCancelItem }) {
 }
 
 JobCard.propTypes = {
-  job: PropTypes.objectOf({
-    name: PropTypes.string,
-    duration: PropTypes.string
+  job: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    duration: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    index: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
+    progress: PropTypes.number.isRequired
   }).isRequired,
   onCancelItem: PropTypes.func
 }

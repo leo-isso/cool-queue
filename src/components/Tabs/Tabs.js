@@ -47,7 +47,6 @@ function Tabs ({ tabItems }) {
 }
 
 Tabs.propTypes = {
-  onTabSelection: PropTypes.func.isRequired,
   tabItems: PropTypes.array.isRequired
 }
 
