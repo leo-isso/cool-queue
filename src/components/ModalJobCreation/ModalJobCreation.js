@@ -1,27 +1,23 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import * as Components from './ModalJobCreation.styles'
 import Modal from '../Modal'
 import AddJobToQueue from '../../Forms/AddJobToQueue'
+import { useModal } from '../../contexts/Modals/Modal.context'
 
 /**
  * ModalJobCreation component
  * Extension of Modal component
  */
-function ModalJobCreation ({ show, onClose }) {
+function ModalJobCreation () {
+  const { closeModal } = useModal()
   return (
-    <Modal show={show} onClose={onClose} title="Add item to queue">
+    <Modal onClose={closeModal} title="Add item to queue">
       <Components.Wrapper>
-        <AddJobToQueue submitCallback={onClose} onCancel={onClose}/>
+        <AddJobToQueue submitCallback={closeModal} onCancel={closeModal}/>
       </Components.Wrapper>
     </Modal>
   )
-}
-
-ModalJobCreation.propTypes = {
-  show: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired
 }
 
 export default ModalJobCreation
