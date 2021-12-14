@@ -24,7 +24,8 @@ export const Tab = styled.div`
   display: flex;
   justify-content: center;
   height: 45px;
-  width: 100px;
+  padding: 0 15px;
+  min-width: 100px;
 
   &:hover {
     background-color: ${colors.primary};
