@@ -1,11 +1,15 @@
 import React from 'react'
 import { Field, Form } from 'react-final-form'
+import { useDispatch } from 'react-redux'
 
 import { Button } from '../components/Button/Button.styles'
 import TextInput from '../components/TextInput'
 import RadioButton from '../components/RadioButton'
+import { queueAddPendingItem } from '../redux/actions/queue'
 
 function AddJobToQueue () {
+  const dispatch = useDispatch()
+
   const validateForm = ({ name, duration }) => {
     const errors = {}
     if (!name) {
@@ -17,10 +21,15 @@ function AddJobToQueue () {
     return errors
   }
 
+  const onSubmit = values => {
+    console.log(values)
+    dispatch(queueAddPendingItem(values))
+  }
+
   return (
     <Form
-      onSubmit={validateForm}
-      validate={(values) => console.log(values)}
+      onSubmit={onSubmit}
+      validate={validateForm}
       initialValues={{ timeFormat: 'minutes' }}
       render={({ handleSubmit, submitting }) => (
         <form onSubmit={handleSubmit}>
