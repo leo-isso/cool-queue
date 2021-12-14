@@ -1,16 +1,24 @@
 import CurrentJobBanner from './components/CurrentJobBanner'
 import Header from './components/Header'
+import JobList from './components/JobList'
 import Tabs from './components/Tabs'
 
+import jobs from './mocks/jobs'
+
 function App () {
+  const renderList = () => {
+    return (
+      <JobList jobs={jobs} />
+    )
+  }
   const tabItems = [
     {
       title: 'Tab 1',
-      content: () => <p>Tab 1</p>
+      content: () => renderList()
     },
     {
       title: 'Tab 2',
-      content: () => <p>Tab 2</p>
+      content: () => renderList()
     }
   ]
 
