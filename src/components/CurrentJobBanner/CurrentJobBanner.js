@@ -4,12 +4,16 @@ import { useSelector } from 'react-redux'
 
 import * as Components from './CurrentJobBanner.styles'
 import Container from '../Container'
-import ProgressBar from '../ProgressBar/'
+import ProgressBar from '../ProgressBar'
+import Button from '../Button'
+
+import { useModal } from '../../contexts/Modals/Modal.context'
 
 /**
  * CurrentJobBanner Component
  */
 function CurrentJobBanner () {
+  const { openModal } = useModal()
   const workingItem = useSelector((state) => state.working_item)
 
   return (
@@ -28,7 +32,13 @@ function CurrentJobBanner () {
                   Job duration: {workingItem.duration}
                 </Components.Text>
                 <Components.Text>Progress:</Components.Text>
-                <ProgressBar progress={workingItem.progress} />
+                <Components.OptionsWrapper>
+                  <ProgressBar progress={workingItem.progress} />
+                  <Button variant="danger"
+                    onClick={(job) => openModal('removeJob', { job })}>
+                    Cancel
+                  </Button>
+                </Components.OptionsWrapper>
               </>
                 )
               : (

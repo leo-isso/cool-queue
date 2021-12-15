@@ -25,6 +25,13 @@ export const ContentBlock = styled.div`
   width: 100%;
 `
 
+export const OptionsWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+`
+
 export const Title = styled.h2`
   color: ${colors.white};
 `
