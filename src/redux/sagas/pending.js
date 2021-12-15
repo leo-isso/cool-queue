@@ -5,6 +5,7 @@ import createJob from '../../services/createJob'
 import updateJob from '../../services/updateJob'
 import { decrementSize, incrementSize } from '../actions/size'
 import { setEmpty, unsetEmpty } from '../actions/empty'
+import { addCompletedJob } from '../actions/completed'
 
 function * addPendingJob (action) {
   try {
@@ -23,6 +24,7 @@ function * removePendingJob (action) {
     const item = yield updateJob(action.payload, { status: 'cancelled' })
     yield put({ type: types.QUEUE_REMOVE_PENDING_JOB_SUCCESS, payload: item })
     yield put(decrementSize())
+    yield put(addCompletedJob(item))
     const size = yield select(state => state.size)
     if (size === 0) {
       yield put(setEmpty())
