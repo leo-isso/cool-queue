@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import * as Components from './Button.styles'
 
+import { variantConfig } from './configuration'
+
 /**
  * Button component
  * @param {Node} children - The children of the button
@@ -18,9 +20,11 @@ function Button ({
   id,
   form,
   onClick,
-  reverse,
+  variant,
   type
 }) {
+  const variantOption = () => variantConfig[variant] || variantConfig.default
+
   return (
     <Components.Button
       id={id}
@@ -28,7 +32,8 @@ function Button ({
       disabled={disabled}
       form={form}
       onClick={onClick}
-      reverse={reverse}>
+      variant={variantOption()}
+    >
       {children}
     </Components.Button>
   )
@@ -40,8 +45,16 @@ Button.propTypes = {
   id: PropTypes.string,
   form: PropTypes.string,
   onClick: PropTypes.func,
-  reverse: PropTypes.bool,
+  variant: PropTypes.oneOf([
+    'default',
+    'reverse',
+    'danger'
+  ]),
   type: PropTypes.string
+}
+
+Button.defaultProps = {
+  variant: 'default'
 }
 
 export default Button
