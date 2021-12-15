@@ -5,11 +5,11 @@ import { incrementCompletedSize } from '../actions/completedSize'
 
 function * addCompletedSaga (action) {
   try {
-    yield put({ type: types.QUEUE_ADD_PENDING_JOB_SUCCESS, payload: action.payload })
+    yield put({ type: types.QUEUE_ADD_COMPLETED_JOB_SUCCESS, payload: action.payload })
     yield put(incrementCompletedSize())
   } catch (error) {
     const { message } = error
-    yield put({ type: types.QUEUE_ADD_PENDING_JOB_FAIL, payload: { message } })
+    yield put({ type: types.QUEUE_ADD_COMPLETED_JOB_FAIL, payload: { message } })
   }
 }
 
