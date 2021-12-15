@@ -1,24 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
 
 import JobCard from '../JobCard'
 import * as Components from './JobList.styles'
-import { queueRemovePendingJob, queueRemoveWorkingJob } from '../../redux/actions/queue'
+
+import { useModal } from '../../contexts/Modals/Modal.context'
 
 /**
  * JobList component
  * @param {object} jobs
  */
 function JobList ({ jobs }) {
-  const dispatch = useDispatch()
+  const { openModal } = useModal()
   const hasJobs = jobs && jobs.length > 0
 
   const handleCancelItem = (job) => {
-    if (job.status === 'pending') {
-      dispatch(queueRemovePendingJob(job))
-    }
-    dispatch(queueRemoveWorkingJob(job))
+    openModal('removeJob', { job })
   }
 
   return (
