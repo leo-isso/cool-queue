@@ -29,7 +29,6 @@ const inProgressJobSpy = () => ({
   },
 
   dispatchProgress () {
-    console.log('dispatching progress', this.progress)
     store.dispatch(queueUpdatWorkingJob({ progress: this.progress }))
   }
 })
