@@ -7,7 +7,7 @@ import JobList from './components/JobList'
 import Tabs from './components/Tabs'
 
 import { useModal } from './contexts/Modals/Modal.context'
-import { addWorkingJob } from './redux/actions/workingItem'
+import { addWorkingItem } from './redux/actions/workingItem'
 
 function App () {
   console.log('render')
@@ -20,7 +20,7 @@ function App () {
 
   useEffect(() => {
     if (!workingItem && pending.length > 0) {
-      dispatch(addWorkingJob(pending[0]))
+      dispatch(addWorkingItem(pending[0]))
     }
   }, [pending])
   const tabItems = [
