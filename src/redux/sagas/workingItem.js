@@ -7,6 +7,7 @@ import inProgressJobSpy from '../../services/inProgressJobSpy'
 import { addCompletedJob } from '../actions/completed'
 import { clearWorkingItem } from '../actions/workingItem'
 import { addPendingItemToWorking } from '../actions/pending'
+import { decrementSize } from '../actions/size'
 
 const spy = inProgressJobSpy
 
@@ -29,7 +30,9 @@ function * removeWorkingItem (action) {
   try {
     yield spy.stopInterval()
     const item = yield updateJob(action.payload, { status: 'cancelled' })
-    yield put({ type: types.REMOVE_WORKING_ITEM_SUCCESS, payload: item })
+    yield put(clearWorkingItem())
+    yield put(decrementSize())
+    yield put(addCompletedJob(item))
   } catch (error) {
     const { message } = error
     yield put({
