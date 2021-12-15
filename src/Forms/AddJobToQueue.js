@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { Button } from '../components/Button/Button.styles'
 import TextInput from '../components/TextInput'
 import RadioButton from '../components/RadioButton'
-import { queueAddPendingJob } from '../redux/actions/queue'
+import { addPendingJob } from '../redux/actions/pending'
 
 function AddJobToQueue ({ submitCallback, onCancel }) {
   const dispatch = useDispatch()
@@ -23,7 +23,7 @@ function AddJobToQueue ({ submitCallback, onCancel }) {
   }
 
   const onSubmit = values => {
-    dispatch(queueAddPendingJob(values))
+    dispatch(addPendingJob(values))
     submitCallback && submitCallback()
   }
 
