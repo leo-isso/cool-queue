@@ -9,6 +9,11 @@ import Button from '../Button'
 import { useModal } from '../../contexts/Modals/Modal.context'
 import { queueRemovePendingJob, queueRemoveWorkingJob } from '../../redux/actions/queue'
 
+/**
+ * ModalJobRemoval component
+ * Extension of Modal component
+ * @param {object} job - Job object
+ */
 function ModalJobRemoval ({ job }) {
   const dispatch = useDispatch()
   const { closeModal } = useModal()
