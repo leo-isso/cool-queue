@@ -14,7 +14,7 @@ export const Button = styled.button`
   font-weight: 600;
   justify-content: center;
   padding: 10px 20px;
-  margin: 10px;
+  margin: 0 10px;
 
   &:disabled {
     background-color: ${colors.gray};
