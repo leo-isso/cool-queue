@@ -18,8 +18,14 @@ export const Card = styled.div`
 export const Wrapper = styled.div`
   align-items: center;
   display: flex;
+  width: 100%;
+`
+
+export const InnerWrapper = styled.div`
+  align-items: center;
+  display: flex;
   justify-content: space-between;
-  padding: 20px 30px;
+  margin: 20px 30px;
   width: 100%;
 `
 
@@ -29,9 +35,16 @@ export const Data = styled.div`
   flex-direction: column;
 `
 
-export const DataText = styled.p`
+export const DataText = styled.div`
   color: ${colors.primaryDark};
-  margin: 10px 0;
+  align-items: center;
+  display: flex;
+  margin: 5px 0;
+`
+
+export const Text = styled.p`
+  ${(props) => props.color && `color: ${props.color};`}
+  margin-left: 10px;
 `
 
 export const Icon = styled.div`

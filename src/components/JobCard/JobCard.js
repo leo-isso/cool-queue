@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaCheckCircle, FaClock, FaMinusCircle, FaRegTrashAlt, FaTag } from 'react-icons/fa'
+import { FaCheckCircle, FaChevronCircleRight, FaClock, FaMinusCircle, FaRegTrashAlt, FaTag } from 'react-icons/fa'
 
 import * as Components from './JobCard.styles'
 import colors from '../../styles/colors'
@@ -15,40 +15,59 @@ function JobCard ({ job, onCancelItem }) {
 
   const iconsByStatus = {
     pending: {
+      color: colors.primary,
       icon: <FaRegTrashAlt color={colors.primaryDark} />,
       action: () => onCancelItem && onCancelItem(job)
     },
     working: {
+      color: colors.success,
       icon: <FaMinusCircle color={colors.danger} />,
       action: () => onCancelItem && onCancelItem(job)
     },
     finished: {
+      color: colors.success,
       icon: <FaCheckCircle color={colors.success} />,
       action: null
     },
     cancelled: {
+      color: colors.danger,
       icon: <FaMinusCircle color={colors.primaryDark} />,
       action: null
     }
   }
 
   // selects icon and action based on status
-  const { icon, action } = iconsByStatus[status] || { icon: null, action: null }
+  const { icon, action, color } = iconsByStatus[status] || { icon: null, action: null }
 
   return (
     <Components.Card>
       <Components.Wrapper>
-        <Components.Data>
-          <Components.DataText>
-            <FaTag/> <strong>Job name: </strong>{name}
-          </Components.DataText>
-          <Components.DataText>
-            <FaClock/> <strong>Duration: </strong>{duration} minutes
-          </Components.DataText>
-        </Components.Data>
-        <Components.Icon onClick={action}>
-          {icon}
-        </Components.Icon>
+        <Components.InnerWrapper>
+          <Components.Data>
+            <Components.DataText>
+              <FaTag />{' '}
+              <Components.Text>
+                <strong>Job name: </strong>
+                {name}
+              </Components.Text>
+            </Components.DataText>
+            <Components.DataText>
+              <FaClock />{' '}
+              <Components.Text>
+                <strong>Duration: </strong>
+                {duration} minutes
+              </Components.Text>
+            </Components.DataText>
+            <Components.DataText>
+              <FaChevronCircleRight />{' '}
+              <Components.Text>
+                <strong>Status: </strong>
+              </Components.Text>
+              <Components.Text color={color}>{status}</Components.Text>
+            </Components.DataText>
+          </Components.Data>
+          <Components.Icon onClick={action}>{icon}</Components.Icon>
+        </Components.InnerWrapper>
       </Components.Wrapper>
     </Components.Card>
   )
