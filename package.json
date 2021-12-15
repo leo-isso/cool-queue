@@ -45,7 +45,6 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.18",
-    "eslint": "^8.4.1",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jest": "^25.3.0",
