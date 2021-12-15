@@ -13,3 +13,10 @@ export const removePendingJob = (job) => {
     payload: job
   }
 }
+
+export const addPendingItemToWorking = (job) => {
+  return {
+    type: types.ADD_PENDING_ITEM_TO_WORKING,
+    payload: job
+  }
+}
