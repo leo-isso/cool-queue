@@ -24,6 +24,6 @@ export const Buttons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 100%;
 `

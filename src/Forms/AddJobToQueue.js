@@ -66,7 +66,7 @@ function AddJobToQueue ({ submitCallback, onCancel }) {
             style={{
               display: 'flex',
               justifyContent: 'flex-end',
-              marginTop: '15px'
+              margin: '15px 0'
             }}
           >
             <Button type="submit">Submit</Button>
