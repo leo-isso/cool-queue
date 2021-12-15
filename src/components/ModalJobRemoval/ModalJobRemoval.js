@@ -31,8 +31,18 @@ function ModalJobRemoval ({ job }) {
   return (
     <Modal onClose={closeModal} title="Remove Job">
       <Components.Wrapper>
-        <Button onClick={handleCancelItem}>Remove</Button>
-        <Button onClick={closeModal}>Cancel</Button>
+        <Components.Text>
+          <strong>
+            Are you sure you want to remove this job?
+          </strong>
+        </Components.Text>
+        <Components.Text>
+          Job: {job.name}
+        </Components.Text>
+        <Components.Buttons>
+          <Button onClick={handleCancelItem}>Remove</Button>
+          <Button onClick={closeModal} reverse>Cancel</Button>
+        </Components.Buttons>
       </Components.Wrapper>
     </Modal>
   )
