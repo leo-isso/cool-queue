@@ -35,6 +35,12 @@ const queueRemoveWorkingJobSuccess = (state, action) => ({
   completed: [...state.completed, action.payload]
 })
 
+const queueAddCompletedJobSuccess = (state, action) => ({
+  ...state,
+  working_item: null,
+  completed: [...state.completed, action.payload]
+})
+
 export default function queueReducer (state = initialState, action) {
   switch (action.type) {
     case types.QUEUE_ADD_PENDING_JOB_SUCCESS:
@@ -50,10 +56,7 @@ export default function queueReducer (state = initialState, action) {
       return queueRemoveWorkingJobSuccess(state, action)
 
     case types.QUEUE_ADD_COMPLETED_JOB:
-      return {
-        ...state,
-        working_item: null
-      }
+      return queueAddCompletedJobSuccess(state, action)
     default:
       return state
   }
