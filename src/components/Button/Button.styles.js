@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import colors from '../../styles/colors'
 
 export const Button = styled.button`
-  ${props => console.log(props)}
   align-items: center;
   background-color: ${(props) => props.variant.standard.backgroundColor};
   border: 1px solid ${props => props.variant.standard.borderColor};
