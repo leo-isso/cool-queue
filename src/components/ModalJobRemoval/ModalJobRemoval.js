@@ -7,7 +7,8 @@ import Modal from '../Modal'
 import Button from '../Button'
 
 import { useModal } from '../../contexts/Modals/Modal.context'
-import { queueRemovePendingJob, queueRemoveWorkingJob } from '../../redux/actions/queue'
+import { removePendingJob } from '../../redux/actions/pending'
+import { removeWorkingJob } from '../../redux/actions/workingItem'
 
 /**
  * ModalJobRemoval component
@@ -20,9 +21,9 @@ function ModalJobRemoval ({ job }) {
 
   const handleCancelItem = () => {
     if (job.status === 'pending') {
-      dispatch(queueRemovePendingJob(job))
+      dispatch(removePendingJob(job))
     } else {
-      dispatch(queueRemoveWorkingJob(job))
+      dispatch(removeWorkingJob(job))
     }
     closeModal()
   }
