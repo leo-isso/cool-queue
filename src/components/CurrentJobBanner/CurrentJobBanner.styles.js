@@ -12,19 +12,32 @@ export const CurrentJobBanner = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 `
 
-export const TextBlock = styled.div`
+export const ContentBlock = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
 `
 
-export const Text = styled.h2`
+export const Title = styled.h2`
   color: ${colors.white};
+`
+
+export const Text = styled.p`
+  color: ${colors.white};
+  margin: 5px 0;
+
+  &::first-of-type {
+    margin-top: 10px;
+  }
+
+  &::last-of-type {
+    margin-top: 10px;
+  }
 `

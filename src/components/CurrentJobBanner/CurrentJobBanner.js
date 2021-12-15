@@ -16,31 +16,32 @@ function CurrentJobBanner () {
     <Components.CurrentJobBanner>
       <Container>
         <Components.Wrapper>
-          <Components.TextBlock>
+          <Components.ContentBlock>
             {workingItem
               ? (
               <>
                 <Components.Title style={{ textDecoration: 'underline' }}>
                   Current Running Job:
                 </Components.Title>
-                <Components.Text style={{ margin: '10px 0 0' }}>
-                  Job name: {workingItem.name}
-                </Components.Text>
-                <Components.Text style={{ margin: '10px 0 0' }}>
+                <Components.Text>Job name: {workingItem.name}</Components.Text>
+                <Components.Text>
                   Job duration: {workingItem.duration}
                 </Components.Text>
-                <Components.Text style={{ margin: '10px 0 0' }}>
-                  Progress:
-                </Components.Text>
+                <Components.Text>Progress:</Components.Text>
                 <ProgressBar progress={workingItem.progress} />
               </>
                 )
               : (
-              <Components.Title style={{ textDecoration: 'underline' }}>
-                No Current Running Job
-              </Components.Title>
+              <>
+                <Components.Title style={{ textDecoration: 'underline' }}>
+                  No Current Running Job
+                </Components.Title>
+                <Components.Text>
+                  The running job information will be available here!
+                </Components.Text>
+              </>
                 )}
-          </Components.TextBlock>
+          </Components.ContentBlock>
         </Components.Wrapper>
       </Container>
     </Components.CurrentJobBanner>
