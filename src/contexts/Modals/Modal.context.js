@@ -33,8 +33,6 @@ export const ModalProvider = ({ children }) => {
     setModalConfiguration(initialModalConfiguration)
   }
 
-  console.log(modalConfiguration)
-
   return (
     <ModalContext.Provider value={{ closeModal, openModal }}>
       {children}
