@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import { Field, Form } from 'react-final-form'
 import { useDispatch } from 'react-redux'
 
-import { Button } from '../components/Button/Button.styles'
+import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import RadioButton from '../components/RadioButton'
+
 import { addPendingJob } from '../redux/actions/pending'
 
 function AddJobToQueue ({ submitCallback, onCancel }) {
@@ -69,7 +70,7 @@ function AddJobToQueue ({ submitCallback, onCancel }) {
               margin: '15px 0'
             }}
           >
-            <Button type="submit">Submit</Button>
+            <Button variant="default" type="submit">Submit</Button>
             {onCancel && (
               <Button type="button" onClick={onCancel} reverse>
                 Cancel
