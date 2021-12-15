@@ -7,7 +7,7 @@ import inProgressJobSpy from '../../services/inProgressJobSpy'
 
 const spy = inProgressJobSpy
 
-function * queueAddWorkingJob (action) {
+function * addWorkingJob (action) {
   try {
     const item = yield updateJob(action.payload, { status: 'working' })
     yield put({ type: types.QUEUE_ADD_WORKING_JOB_SUCCESS, payload: item })
@@ -20,7 +20,7 @@ function * queueAddWorkingJob (action) {
   }
 }
 
-function * queueRemoveWorkingJob (action) {
+function * removeWorkingJob (action) {
   try {
     yield spy.stopInterval()
     const item = yield updateJob(action.payload, { status: 'cancelled' })
@@ -35,8 +35,8 @@ function * queueRemoveWorkingJob (action) {
 }
 
 function * workingJobSaga () {
-  yield takeEvery(types.QUEUE_ADD_WORKING_JOB, queueAddWorkingJob)
-  yield takeEvery(types.QUEUE_REMOVE_WORKING_JOB, queueRemoveWorkingJob)
+  yield takeEvery(types.QUEUE_ADD_WORKING_JOB, addWorkingJob)
+  yield takeEvery(types.QUEUE_REMOVE_WORKING_JOB, removeWorkingJob)
 }
 
 export default workingJobSaga

@@ -1,15 +1,15 @@
-// import * as types from '../types'
+import * as types from '../types'
 
 const initialState = null
 
-// const addCompletedJobSuccess = (state, action) => {
-//   return [...state, action.payload]
-// }
+const addWorkingItem = (state, action) => {
+  return action.payload
+}
 
 export default function workingItemReducer (state = initialState, action) {
   switch (action.type) {
-    // case types.QUEUE_ADD_COMPLETED_JOB_SUCCESS:
-    //   return addCompletedJobSuccess(state, action)
+    case types.QUEUE_ADD_WORKING_JOB:
+      return addWorkingItem(state, action)
 
     default:
       return state
