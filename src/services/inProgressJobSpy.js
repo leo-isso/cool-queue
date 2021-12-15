@@ -1,5 +1,5 @@
 import store from '../redux/store'
-import { queueUpdatWorkingJob } from '../redux/actions/queue'
+import { updateWorkingItem } from '../redux/actions/workingItem'
 
 /**
  * The inProgressJobSpy should be instanced only once
@@ -31,7 +31,7 @@ const inProgressJobSpy = () => ({
   },
 
   dispatchProgress () {
-    store.dispatch(queueUpdatWorkingJob({ progress: this.progress }))
+    store.dispatch(updateWorkingItem({ progress: this.progress }))
   }
 })
 
