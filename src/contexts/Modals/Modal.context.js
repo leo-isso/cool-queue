@@ -7,29 +7,41 @@ import ModalJobRemoval from '../../components/ModalJobRemoval/ModalJobRemoval'
 const ModalContext = createContext({})
 
 const MODALS = {
-  createJob: () => <ModalJobCreation />,
-  removeJob: () => <ModalJobRemoval />,
+  createJob: (props) => <ModalJobCreation {...props} />,
+  removeJob: (props) => <ModalJobRemoval {...props} />,
   empty: () => <></>
 }
 
 export const ModalProvider = ({ children }) => {
-  const [show, setShow] = useState(false)
-  const [name, setName] = useState(null)
+  const initialModalConfiguration = {
+    show: false,
+    name: null,
+    props: {}
+  }
 
-  const openModal = (name) => {
-    setName(name)
-    setShow(true)
+  const [modalConfiguration, setModalConfiguration] = useState(initialModalConfiguration)
+
+  const openModal = (name, props = {}) => {
+    setModalConfiguration({
+      show: true,
+      name,
+      props
+    })
   }
 
   const closeModal = () => {
-    setName(null)
-    setShow(true)
+    setModalConfiguration(initialModalConfiguration)
   }
 
+  console.log(modalConfiguration)
+
   return (
-    <ModalContext.Provider value={{ show, name, closeModal, openModal }}>
+    <ModalContext.Provider value={{ closeModal, openModal }}>
       {children}
-      {show && (MODALS[name] || MODALS.empty)()}
+      {modalConfiguration.show &&
+        (MODALS[modalConfiguration.name] || MODALS.empty)(
+          modalConfiguration.props
+        )}
     </ModalContext.Provider>
   )
 }
