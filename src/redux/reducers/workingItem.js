@@ -4,10 +4,10 @@ const initialState = null
 
 export default function workingItemReducer (state = initialState, action) {
   switch (action.type) {
-    case types.QUEUE_ADD_WORKING_JOB_SUCCESS:
+    case types.ADD_WORKING_ITEM_SUCCESS:
       return action.payload
 
-    case types.CLEAR_WORKING_JOB:
+    case types.CLEAR_WORKING_ITEM:
       return null
 
     default:

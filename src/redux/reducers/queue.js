@@ -27,13 +27,13 @@ const queuUpdateWorkingJob = (state, action) => ({
 
 export default function queueReducer (state = initialState, action) {
   switch (action.type) {
-    case types.QUEUE_ADD_WORKING_JOB_SUCCESS:
+    case types.ADD_WORKING_ITEM_SUCCESS:
       return queueAddWorkingJobSuccess(state, action)
 
-    case types.QUEUE_REMOVE_WORKING_JOB_SUCCESS:
+    case types.REMOVE_WORKING_ITEM_SUCCESS:
       return queueRemoveWorkingJobSuccess(state, action)
 
-    case types.QUEUE_UPDATE_WORKING_JOB:
+    case types.UPDATE_WORKING_ITEM:
       return queuUpdateWorkingJob(state, action)
 
     default:

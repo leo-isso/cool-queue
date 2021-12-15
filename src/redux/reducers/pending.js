@@ -12,10 +12,10 @@ const removePendingJobSuccess = (state, action) => {
 
 export default function pendingReducer (state = initialState, action) {
   switch (action.type) {
-    case types.QUEUE_ADD_PENDING_JOB_SUCCESS:
+    case types.ADD_PENDING_ITEM_SUCCESS:
       return addPendingJobSuccess(state, action)
 
-    case types.QUEUE_REMOVE_PENDING_JOB_SUCCESS:
+    case types.REMOVE_PENDING_ITEM_SUCCESS:
       return removePendingJobSuccess(state, action)
 
     case types.ADD_PENDING_ITEM_TO_WORKING:
