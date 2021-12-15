@@ -6,6 +6,8 @@ import { queueUpdatWorkingJob } from '../redux/actions/queue'
  * and it should be injected in the inProgressJob service
  * in order to watch and retrieve info from the current job
  * It has both methods that supports watching and stoping the interval
+ * Regularly this code could be replaced by an websocket event reciever,
+ * a poilling system or a sync server request
  */
 const inProgressJobSpy = () => ({
   duration: 0,

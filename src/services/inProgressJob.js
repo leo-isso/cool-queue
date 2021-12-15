@@ -3,7 +3,8 @@ import { minutesToSeconds } from '../utils/time/timeFormat'
 /**
  * The inProgressJobSpy is a job simulator based on a setInterval
  * It is watched by the inProgressJobSpy instance that is injected
- * and retrieves info from the current job
+ * and retrieves info from the current job.
+ * Regularly this code would be implemented in the server
  * @param {object} job - Job object
  * @param {inProgressJobSpy} spy - inProgressJobSpy instance
  * @returns {Promise} - Promise that resolves when the job is completed
