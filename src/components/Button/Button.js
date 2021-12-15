@@ -39,7 +39,7 @@ Button.propTypes = {
   disabled: PropTypes.string,
   id: PropTypes.string,
   form: PropTypes.string,
-  onClick: PropTypes.string,
+  onClick: PropTypes.func,
   reverse: PropTypes.bool,
   type: PropTypes.string
 }
