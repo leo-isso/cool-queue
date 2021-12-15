@@ -29,7 +29,7 @@ function CurrentJobBanner () {
                 </Components.Title>
                 <Components.Text>Job name: {workingItem.name}</Components.Text>
                 <Components.Text>
-                  Job duration: {workingItem.duration}
+                  Job duration: {workingItem.duration} minutes
                 </Components.Text>
                 <Components.Text>Progress:</Components.Text>
                 <Components.OptionsWrapper>
