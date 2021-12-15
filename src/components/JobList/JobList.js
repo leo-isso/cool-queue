@@ -14,10 +14,6 @@ function JobList ({ jobs }) {
   const { openModal } = useModal()
   const hasJobs = jobs && jobs.length > 0
 
-  const handleCancelItem = (job) => {
-    openModal('removeJob', { job })
-  }
-
   return (
     <Components.Wrapper>
       {hasJobs
@@ -26,7 +22,7 @@ function JobList ({ jobs }) {
               <JobCard
                 key={job.id}
                 job={job}
-                onCancelItem={(job) => handleCancelItem(job)}
+                onCancelItem={(job) => openModal('removeJob', { job })}
               />
             ))
           )
