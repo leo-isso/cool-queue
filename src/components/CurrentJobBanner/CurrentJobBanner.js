@@ -1,35 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 
-import Container from '../Container'
 import * as Components from './CurrentJobBanner.styles'
+import Container from '../Container'
+import ProgressBar from '../ProgressBar/'
 
 /**
  * CurrentJobBanner Component
- * @param {object} job
- * @param {string} job.name - name of the job
  */
-function CurrentJobBanner ({ job }) {
+function CurrentJobBanner () {
+  const workingItem = useSelector((state) => state.working_item)
+
   return (
     <Components.CurrentJobBanner>
       <Container>
         <Components.Wrapper>
           <Components.TextBlock>
-            {job
+            {workingItem
               ? (
-                <>
-                  <Components.Text style={{ textDecoration: 'underline' }}>
-                    Current Running Job:
-                  </Components.Text>
-                  <Components.Text style={{ margin: '10px 0 0' }}>
-                    {job.name}
-                  </Components.Text>
-                </>
+              <>
+                <Components.Title style={{ textDecoration: 'underline' }}>
+                  Current Running Job:
+                </Components.Title>
+                <Components.Text style={{ margin: '10px 0 0' }}>
+                  Job name: {workingItem.name}
+                </Components.Text>
+                <Components.Text style={{ margin: '10px 0 0' }}>
+                  Job duration: {workingItem.duration}
+                </Components.Text>
+                <Components.Text style={{ margin: '10px 0 0' }}>
+                  Progress:
+                </Components.Text>
+                <ProgressBar progress={workingItem.progress} />
+              </>
                 )
               : (
-                <Components.Text style={{ textDecoration: 'underline' }}>
-                  No Current Running Job
-                </Components.Text>
+              <Components.Title style={{ textDecoration: 'underline' }}>
+                No Current Running Job
+              </Components.Title>
                 )}
           </Components.TextBlock>
         </Components.Wrapper>
