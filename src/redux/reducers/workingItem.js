@@ -10,6 +10,9 @@ export default function workingItemReducer (state = initialState, action) {
     case types.CLEAR_WORKING_ITEM:
       return null
 
+    case types.UPDATE_WORKING_ITEM:
+      return { ...state, ...action.payload }
+
     default:
       return state
   }

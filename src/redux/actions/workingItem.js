@@ -19,3 +19,10 @@ export const clearWorkingItem = () => {
     type: types.CLEAR_WORKING_ITEM
   }
 }
+
+export const updateWorkingItem = (job) => {
+  return {
+    type: types.UPDATE_WORKING_ITEM,
+    payload: job
+  }
+}
