@@ -10,17 +10,20 @@ import { useModal } from './contexts/Modals/Modal.context'
 import { queueAddWorkingJob } from './redux/actions/queue'
 
 function App () {
+  console.log('render')
   const dispatch = useDispatch()
   const { openModal } = useModal()
 
   const queue = useSelector((state) => state.queue)
   const { pending, completed, working_item: workingItem } = queue
+  const noWorkingItem = (!workingItem)
 
   useEffect(() => {
+    console.log('App.js: useEffect')
     if (!workingItem && pending.length > 0) {
       dispatch(queueAddWorkingJob(pending[0]))
     }
-  }, [workingItem, pending])
+  }, [noWorkingItem, pending])
 
   const tabItems = [
     {
