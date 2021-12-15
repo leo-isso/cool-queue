@@ -6,6 +6,7 @@ import emptyReducer from './empty'
 import pendingReducer from './pending'
 import queue from './queue'
 import sizeReducer from './size'
+import workingItemReducer from './workingItem'
 
 const rootReducer = combineReducers({
   completed: completedReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   empty: emptyReducer,
   pending: pendingReducer,
   queue,
-  size: sizeReducer
+  size: sizeReducer,
+  working_item: workingItemReducer
 })
 
 export default rootReducer
