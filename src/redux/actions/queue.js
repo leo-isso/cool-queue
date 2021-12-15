@@ -28,6 +28,13 @@ export const queueRemoveWorkingJob = (job) => {
   }
 }
 
+export const queueUpdatWorkingJob = (job) => {
+  return {
+    type: types.QUEUE_UPDATE_WORKING_JOB,
+    payload: job
+  }
+}
+
 export const queueAddCompletedJob = (job) => {
   return {
     type: types.QUEUE_ADD_COMPLETED_JOB,
