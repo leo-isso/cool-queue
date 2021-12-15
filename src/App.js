@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+// import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 import CurrentJobBanner from './components/CurrentJobBanner'
 import Header from './components/Header'
@@ -7,23 +7,25 @@ import JobList from './components/JobList'
 import Tabs from './components/Tabs'
 
 import { useModal } from './contexts/Modals/Modal.context'
-import { queueAddWorkingJob } from './redux/actions/queue'
+// import { queueAddWorkingJob } from './redux/actions/queue'
 
 function App () {
   console.log('render')
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const { openModal } = useModal()
 
-  const queue = useSelector((state) => state.queue)
-  const { pending, completed, working_item: workingItem } = queue
-  const noWorkingItem = (!workingItem)
+  const pending = useSelector((state) => state.pending)
+  const completed = useSelector((state) => state.completed)
+  const workingItem = useSelector((state) => state.working_item)
+  // const { pending, completed, working_item: workingItem } = queue
+  // const noWorkingItem = (!workingItem)
 
-  useEffect(() => {
-    console.log('App.js: useEffect')
-    if (!workingItem && pending.length > 0) {
-      dispatch(queueAddWorkingJob(pending[0]))
-    }
-  }, [noWorkingItem, pending])
+  // useEffect(() => {
+  //   console.log('App.js: useEffect')
+  //   if (!workingItem && pending.length > 0) {
+  //     dispatch(queueAddWorkingJob(pending[0]))
+  //   }
+  // }, [noWorkingItem, pending])
 
   const tabItems = [
     {
