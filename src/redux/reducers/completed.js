@@ -8,7 +8,7 @@ const addCompletedJobSuccess = (state, action) => {
 
 export default function completedReducer (state = initialState, action) {
   switch (action.type) {
-    case types.QUEUE_ADD_COMPLETED_JOB:
+    case types.QUEUE_ADD_COMPLETED_JOB_SUCCESS:
       return addCompletedJobSuccess(state, action)
 
     default:
