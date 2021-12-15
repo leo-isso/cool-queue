@@ -6,13 +6,11 @@ import Header from './components/Header'
 import JobList from './components/JobList'
 import Tabs from './components/Tabs'
 
-import { useModal } from './contexts/Modals/Modal.context'
 import { addWorkingItem } from './redux/actions/workingItem'
 
 function App () {
   console.log('render')
   const dispatch = useDispatch()
-  const { openModal } = useModal()
 
   const pending = useSelector((state) => state.pending)
   const completed = useSelector((state) => state.completed)
@@ -22,7 +20,7 @@ function App () {
     if (!workingItem && pending.length > 0) {
       dispatch(addWorkingItem(pending[0]))
     }
-  }, [pending])
+  }, [pending, workingItem])
   const tabItems = [
     {
       title: 'Pending/Working',
@@ -36,10 +34,7 @@ function App () {
 
   return (
     <div className="App">
-      <Header
-        addToQueue={() => openModal('createJob')}
-        updateQueue={() => console.log('update')}
-      />
+      <Header />
       <CurrentJobBanner job={workingItem} />
       <Tabs tabItems={tabItems} />
     </div>
