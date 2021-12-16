@@ -16,6 +16,7 @@ export default function pendingReducer (state = initialState, action) {
       return addPendingJobSuccess(state, action)
 
     case types.REMOVE_PENDING_ITEM_SUCCESS:
+    case types.ADD_WORKING_ITEM_SUCCESS:
       return removePendingJobSuccess(state, action)
 
     case types.ADD_PENDING_ITEM_TO_WORKING:

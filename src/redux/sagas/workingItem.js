@@ -5,8 +5,7 @@ import updateJob from '../../services/updateJob'
 import inProgressJob from '../../services/inProgressJob'
 import inProgressJobSpy from '../../services/inProgressJobSpy'
 import { addCompletedJob } from '../actions/completed'
-import { clearWorkingItem } from '../actions/workingItem'
-import { addPendingItemToWorking } from '../actions/pending'
+import { addWorkingItemSuccess, clearWorkingItem } from '../actions/workingItem'
 import { decrementSize } from '../actions/size'
 
 const spy = inProgressJobSpy
@@ -14,8 +13,7 @@ const spy = inProgressJobSpy
 function * addWorkingItem (action) {
   try {
     const item = yield updateJob(action.payload, { status: 'working' })
-    yield put(addPendingItemToWorking(item))
-    yield put({ type: types.ADD_WORKING_ITEM_SUCCESS, payload: item })
+    yield put(addWorkingItemSuccess(item))
     yield call(inProgressJob, item, spy)
     const finishedItem = yield updateJob(action.payload, { status: 'finished' })
     yield put(clearWorkingItem())

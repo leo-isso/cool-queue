@@ -7,6 +7,13 @@ export const addWorkingItem = (job) => {
   }
 }
 
+export const addWorkingItemSuccess = (job) => {
+  return {
+    type: types.ADD_WORKING_ITEM_SUCCESS,
+    payload: job
+  }
+}
+
 export const removeWorkingItem = (job) => {
   return {
     type: types.REMOVE_WORKING_ITEM,

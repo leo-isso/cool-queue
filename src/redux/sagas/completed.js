@@ -1,12 +1,11 @@
 import { put, takeEvery } from 'redux-saga/effects'
+import { addCompletedJobSuccess } from '../actions/completed'
 
 import * as types from '../types'
-import { incrementCompletedSize } from '../actions/completedSize'
 
 function * addCompletedSaga (action) {
   try {
-    yield put({ type: types.ADD_COMPLETED_ITEM_SUCCESS, payload: action.payload })
-    yield put(incrementCompletedSize())
+    yield put(addCompletedJobSuccess(action.payload))
   } catch (error) {
     const { message } = error
     yield put({ type: types.ADD_COMPLETED_ITEM_FAIL, payload: { message } })

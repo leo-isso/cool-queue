@@ -33,10 +33,3 @@ export const removePendingJobSuccess = (item, total) => {
     }
   }
 }
-
-export const addPendingItemToWorking = (item) => {
-  return {
-    type: types.ADD_PENDING_ITEM_TO_WORKING,
-    payload: item
-  }
-}
