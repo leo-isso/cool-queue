@@ -9,6 +9,7 @@ export default function sizeReducer (state = initialState, action) {
 
     case types.REMOVE_PENDING_ITEM_SUCCESS:
     case types.REMOVE_WORKING_ITEM_SUCCESS:
+    case types.CLEAR_WORKING_ITEM:
       return state - 1
 
     default:

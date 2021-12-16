@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { call, put, select, takeEvery } from 'redux-saga/effects'
 
 import * as types from '../types'
 import updateJob from '../../services/updateJob'
@@ -15,9 +15,11 @@ function * addWorkingItem (action) {
     const item = yield updateJob(action.payload, { status: 'working' })
     yield put(addWorkingItemSuccess(item))
     yield call(inProgressJob, item, spy)
-    const finishedItem = yield updateJob(action.payload, { status: 'finished' })
-    yield put(clearWorkingItem())
+    const finishedItem = yield updateJob(item, { status: 'finished' })
     yield put(addCompletedJob(finishedItem))
+    const { pending, working_item: workingItem } = yield select((state) => state)
+    const total = pending.length - 1 + (workingItem ? 1 : 0)
+    yield put(clearWorkingItem(total))
   } catch (error) {
     const { message } = error
     yield put({ type: types.ADD_WORKING_ITEM_FAIL, payload: { message } })

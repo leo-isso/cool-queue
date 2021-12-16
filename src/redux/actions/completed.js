@@ -7,9 +7,9 @@ export const addCompletedJob = (job) => {
   }
 }
 
-export const addCompletedJobSuccess = (job) => {
+export const addCompletedJobSuccess = (item) => {
   return {
     type: types.ADD_COMPLETED_ITEM_SUCCESS,
-    payload: job
+    payload: { item }
   }
 }

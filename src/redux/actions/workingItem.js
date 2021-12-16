@@ -1,35 +1,36 @@
 import * as types from '../types'
 
-export const addWorkingItem = (job) => {
+export const addWorkingItem = (item) => {
   return {
     type: types.ADD_WORKING_ITEM,
-    payload: job
+    payload: item
   }
 }
 
-export const addWorkingItemSuccess = (job) => {
+export const addWorkingItemSuccess = (item) => {
   return {
     type: types.ADD_WORKING_ITEM_SUCCESS,
-    payload: job
+    payload: { item }
   }
 }
 
-export const removeWorkingItem = (job) => {
+export const removeWorkingItem = (item) => {
   return {
     type: types.REMOVE_WORKING_ITEM,
-    payload: job
+    payload: { item }
   }
 }
 
-export const clearWorkingItem = () => {
+export const clearWorkingItem = (total) => {
   return {
-    type: types.CLEAR_WORKING_ITEM
+    type: types.CLEAR_WORKING_ITEM,
+    payload: { total }
   }
 }
 
-export const updateWorkingItem = (job) => {
+export const updateWorkingItem = (item) => {
   return {
     type: types.UPDATE_WORKING_ITEM,
-    payload: job
+    payload: item
   }
 }
