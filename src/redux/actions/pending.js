@@ -19,14 +19,14 @@ export const addPendingJobSuccess = (item, total) => {
 
 export const removePendingJob = (item) => {
   return {
-    type: types.REMOVE_PENDING_ITEM_SUCCESS,
+    type: types.REMOVE_PENDING_ITEM,
     payload: item
   }
 }
 
 export const removePendingJobSuccess = (item, total) => {
   return {
-    type: types.ADD_PENDING_ITEM,
+    type: types.REMOVE_PENDING_ITEM_SUCCESS,
     payload: {
       item,
       total
