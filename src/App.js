@@ -29,32 +29,23 @@ const renderTabs = () => {
 }
 
 function App () {
-  console.log('render')
   const dispatch = useDispatch()
 
-  const pending = useSelector(
-    (state) => state.pending
-  )
+  const pending = useSelector((state) => state.pending)
+  // Optimized selector for workingItem that
+  // doesn't re-render when progress is updated
   const workingItem = useSelector(
     (state) => state.working_item,
-    (prev, next) => {
-      return ((prev !== null) === (next !== null))
-    }
-  )
-  console.log(pending, workingItem)
+    (prev, next) => ((prev !== null) === (next !== null)))
+
+  // Watches pending list and working item
+  // So it can add a new working item when
+  // there are available jobs
   useEffect(() => {
-    console.log('useEffect')
     if (workingItem === null && pending.length > 0) {
       dispatch(addWorkingItem(pending[0]))
     }
-  }, [pending])
-
-  // useEffect(() => {
-  //   // console.log('useEffect - pending', pending > 0, (!workingItem))
-  //   if (pending.length > 0 && workingItem === null) {
-  //     dispatch(addWorkingItem(pending[0]))
-  //   }
-  // }, [pending, workingItem])
+  }, [pending, workingItem])
 
   return (
     <div className="App">
