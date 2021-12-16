@@ -1,8 +1,10 @@
 # Cool Queue App
 
-This project was built for a technical evaluation.
+Demo: [Cool App](https://cool-queue.vercel.app/)
 
-Cool Queue is a generic items Queue manager that allows you to:
+## What is Cool Queue App?
+
+Cool Queue is a Queue manager that allows you to:
 
 - See the pending, in progress, and completed (finished and canceled) items
 
