@@ -17,7 +17,17 @@ export const addWorkingItemSuccess = (item) => {
 export const removeWorkingItem = (item) => {
   return {
     type: types.REMOVE_WORKING_ITEM,
-    payload: { item }
+    payload: item
+  }
+}
+
+export const removeWorkingItemSuccess = (item, total) => {
+  return {
+    type: types.REMOVE_WORKING_ITEM_SUCCESS,
+    payload: {
+      item,
+      total
+    }
   }
 }
 

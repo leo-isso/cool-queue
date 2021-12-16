@@ -34,8 +34,10 @@ function CurrentJobBanner () {
                 <Components.Text>Progress:</Components.Text>
                 <Components.OptionsWrapper>
                   <ProgressBar progress={workingItem.progress} />
-                  <Button variant="danger"
-                    onClick={(job) => openModal('removeJob', { job })}>
+                  <Button
+                    variant="danger"
+                    onClick={() => openModal('removeJob', { job: workingItem })}
+                  >
                     Cancel
                   </Button>
                 </Components.OptionsWrapper>
