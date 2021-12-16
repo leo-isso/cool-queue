@@ -10,7 +10,7 @@ import { calculateSize } from './helpers'
 function * addPendingItem (action) {
   try {
     const item = yield createJob(action.payload)
-    const total = call(calculateSize, false)
+    const total = yield call(calculateSize, false)
     yield put(addPendingJobSuccess(item, total))
   } catch (error) {
     const { message } = error
@@ -21,7 +21,7 @@ function * addPendingItem (action) {
 function * removePendingItem (action) {
   try {
     const item = yield updateJob(action.payload, { status: 'canceled' })
-    const total = call(calculateSize, true)
+    const total = yield call(calculateSize, true)
     yield put(removePendingJobSuccess(item, total))
   } catch (error) {
     const { message } = error

@@ -17,7 +17,7 @@ function * addWorkingItem (action) {
     yield call(inProgressJob, item, spy)
     const finishedItem = yield updateJob(item, { status: 'finished' })
     yield put(addCompletedJob(finishedItem))
-    const total = call(calculateSize, true)
+    const total = yield call(calculateSize, true)
     yield put(clearWorkingItem(total))
   } catch (error) {
     const { message } = error
