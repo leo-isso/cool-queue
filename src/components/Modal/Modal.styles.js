@@ -20,7 +20,7 @@ export const ModalBase = styled.div`
   background-color:${colors.white};
   overflow: hidden;
   max-width: 500px;
-  width: 100%;
+  width: 80%;
 `
 
 export const Close = styled.div`
