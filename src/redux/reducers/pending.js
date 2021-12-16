@@ -3,11 +3,11 @@ import * as types from '../types'
 const initialState = []
 
 const addPendingJobSuccess = (state, action) => {
-  return [...state, action.payload]
+  return [...state, action.payload.item]
 }
 
 const removePendingJobSuccess = (state, action) => {
-  return state.filter((item) => item.id !== action.payload.id)
+  return state.filter((item) => item.id !== action.payload.item.id)
 }
 
 export default function pendingReducer (state = initialState, action) {

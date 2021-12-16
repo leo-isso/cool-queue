@@ -1,22 +1,42 @@
 import * as types from '../types'
 
-export const addPendingJob = (job) => {
+export const addPendingJob = (item) => {
   return {
     type: types.ADD_PENDING_ITEM,
-    payload: job
+    payload: item
   }
 }
 
-export const removePendingJob = (job) => {
+export const addPendingJobSuccess = (item, total) => {
   return {
-    type: types.REMOVE_PENDING_ITEM,
-    payload: job
+    type: types.ADD_PENDING_ITEM_SUCCESS,
+    payload: {
+      item,
+      total
+    }
   }
 }
 
-export const addPendingItemToWorking = (job) => {
+export const removePendingJob = (item) => {
+  return {
+    type: types.REMOVE_PENDING_ITEM_SUCCESS,
+    payload: item
+  }
+}
+
+export const removePendingJobSuccess = (item, total) => {
+  return {
+    type: types.ADD_PENDING_ITEM,
+    payload: {
+      item,
+      total
+    }
+  }
+}
+
+export const addPendingItemToWorking = (item) => {
   return {
     type: types.ADD_PENDING_ITEM_TO_WORKING,
-    payload: job
+    payload: item
   }
 }
