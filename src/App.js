@@ -20,7 +20,7 @@ const renderTabs = () => {
       )
     },
     {
-      title: 'Finished/Cancelled',
+      title: 'Finished/Canceled',
       content: () => <JobList jobs={completed} />
     }
   ]
@@ -32,14 +32,29 @@ function App () {
   console.log('render')
   const dispatch = useDispatch()
 
-  const pending = useSelector((state) => state.pending)
-  const workingItem = useSelector((state) => state.working_item)
-
+  const pending = useSelector(
+    (state) => state.pending
+  )
+  const workingItem = useSelector(
+    (state) => state.working_item,
+    (prev, next) => {
+      return ((prev !== null) === (next !== null))
+    }
+  )
+  console.log(pending, workingItem)
   useEffect(() => {
-    if (!workingItem && pending.length > 0) {
+    console.log('useEffect')
+    if (workingItem === null && pending.length > 0) {
       dispatch(addWorkingItem(pending[0]))
     }
-  }, [pending, workingItem])
+  }, [pending])
+
+  // useEffect(() => {
+  //   // console.log('useEffect - pending', pending > 0, (!workingItem))
+  //   if (pending.length > 0 && workingItem === null) {
+  //     dispatch(addWorkingItem(pending[0]))
+  //   }
+  // }, [pending, workingItem])
 
   return (
     <div className="App">

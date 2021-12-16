@@ -28,7 +28,7 @@ function * addWorkingItem (action) {
 function * removeWorkingItem (action) {
   try {
     yield spy.stopInterval()
-    const item = yield updateJob(action.payload, { status: 'cancelled' })
+    const item = yield updateJob(action.payload, { status: 'canceled' })
     const { pending, working_item: workingItem } = yield select((state) => state)
     const total = pending.length - 1 + (workingItem ? 1 : 0)
     yield put(removeWorkingItemSuccess(item, total))

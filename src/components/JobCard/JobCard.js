@@ -29,7 +29,7 @@ function JobCard ({ job, onCancelItem }) {
       icon: <FaCheckCircle color={colors.success} />,
       action: null
     },
-    cancelled: {
+    canceled: {
       color: colors.danger,
       icon: <FaMinusCircle color={colors.primaryDark} />,
       action: null
