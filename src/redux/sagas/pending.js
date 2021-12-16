@@ -1,16 +1,16 @@
-import { put, select, takeEvery } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 
 import * as types from '../types'
 import createJob from '../../services/createJob'
 import updateJob from '../../services/updateJob'
 
 import { addPendingJobSuccess, removePendingJobSuccess } from '../actions/pending'
+import { calculateSize } from './helpers'
 
 function * addPendingItem (action) {
   try {
     const item = yield createJob(action.payload)
-    const { pending, working_item: workingItem } = yield select((state) => state)
-    const total = pending.length + 1 + (workingItem ? 1 : 0)
+    const total = call(calculateSize, false)
     yield put(addPendingJobSuccess(item, total))
   } catch (error) {
     const { message } = error
@@ -21,8 +21,7 @@ function * addPendingItem (action) {
 function * removePendingItem (action) {
   try {
     const item = yield updateJob(action.payload, { status: 'canceled' })
-    const { pending, working_item: workingItem } = yield select((state) => state)
-    const total = pending.length - 1 + (workingItem ? 1 : 0)
+    const total = call(calculateSize, true)
     yield put(removePendingJobSuccess(item, total))
   } catch (error) {
     const { message } = error

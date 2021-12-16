@@ -1,4 +1,4 @@
-import { call, put, select, takeEvery } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 
 import * as types from '../types'
 import updateJob from '../../services/updateJob'
@@ -6,6 +6,7 @@ import inProgressJob from '../../services/inProgressJob'
 import inProgressJobSpy from '../../services/inProgressJobSpy'
 import { addCompletedJob } from '../actions/completed'
 import { addWorkingItemSuccess, clearWorkingItem, removeWorkingItemSuccess } from '../actions/workingItem'
+import { calculateSize } from './helpers'
 
 const spy = inProgressJobSpy
 
@@ -16,8 +17,7 @@ function * addWorkingItem (action) {
     yield call(inProgressJob, item, spy)
     const finishedItem = yield updateJob(item, { status: 'finished' })
     yield put(addCompletedJob(finishedItem))
-    const { pending, working_item: workingItem } = yield select((state) => state)
-    const total = pending.length - 1 + (workingItem ? 1 : 0)
+    const total = call(calculateSize, true)
     yield put(clearWorkingItem(total))
   } catch (error) {
     const { message } = error
@@ -29,8 +29,7 @@ function * removeWorkingItem (action) {
   try {
     yield spy.stopInterval()
     const item = yield updateJob(action.payload, { status: 'canceled' })
-    const { pending, working_item: workingItem } = yield select((state) => state)
-    const total = pending.length - 1 + (workingItem ? 1 : 0)
+    const total = yield call(calculateSize, true)
     yield put(removeWorkingItemSuccess(item, total))
   } catch (error) {
     const { message } = error
